@@ -22,8 +22,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Simple Tic Tac Toe App"
-                android:textSize="38sp"/>
+                android:text="Wilson's Simple Tic Tac Toe"
+                android:textSize="32sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="12dp">
+
+            <Button
+                android:id="@+id/button_resetGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_refresh_black_24dp"
+                android:gravity="center"
+                android:onClick="resetGame"
+                android:text="Reset Game"
+                android:textSize="24sp"/>
         </TableRow>
 
         <TableRow
@@ -36,8 +53,8 @@
                 android:id="@+id/textView_CurrentPlayerTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="right"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="Current Player: "
                 android:textSize="24sp"/>
 
@@ -45,9 +62,9 @@
                 android:id="@+id/textView_CurrentPlayer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="left"
                 android:layout_weight="1"
-                android:text="CIRCLE"
+                android:gravity="left"
+                android:text="CIRCLE (O)"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
         </TableRow>

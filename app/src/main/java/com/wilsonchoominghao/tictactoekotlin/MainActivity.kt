@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageButton
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -38,23 +39,26 @@ class MainActivity : AppCompatActivity() {
 
     // Called when clicking image button (i.e the tic tac toe spaces)
     fun clickImageButton(view: View) {
-        val selectedImageButton: ImageButton = view as ImageButton
+        // Only allow logic processing if nobody has won and not draw
+        if(winner == null) {
+            val selectedImageButton: ImageButton = view as ImageButton
 
-        var number: Int = 0
+            var number: Int = 0
 
-        when (selectedImageButton.id) {
-            R.id.imageButton_1 -> number = 1
-            R.id.imageButton_2 -> number = 2
-            R.id.imageButton_3 -> number = 3
-            R.id.imageButton_4 -> number = 4
-            R.id.imageButton_5 -> number = 5
-            R.id.imageButton_6 -> number = 6
-            R.id.imageButton_7 -> number = 7
-            R.id.imageButton_8 -> number = 8
-            R.id.imageButton_9 -> number = 9
+            when (selectedImageButton.id) {
+                R.id.imageButton_1 -> number = 1
+                R.id.imageButton_2 -> number = 2
+                R.id.imageButton_3 -> number = 3
+                R.id.imageButton_4 -> number = 4
+                R.id.imageButton_5 -> number = 5
+                R.id.imageButton_6 -> number = 6
+                R.id.imageButton_7 -> number = 7
+                R.id.imageButton_8 -> number = 8
+                R.id.imageButton_9 -> number = 9
+            }
+
+            performAction(number, selectedImageButton)
         }
-
-        performAction(number, selectedImageButton)
     }
 
     // Login of clicking image button
@@ -65,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             playerOneSelections.add(number)
             disabledImages.add(imageButton)
             activePlayer = ACTIVEPLAYER.SECOND
-            textView_CurrentPlayer.text = "CROSS"
+            textView_CurrentPlayer.text = "CROSS (X)"
             winnerCheck(playerOneSelections, WINNER.PLAYER_ONE)
         } else if (activePlayer == ACTIVEPLAYER.SECOND) {
             imageButton.setImageResource(R.drawable.ic_cross_black_24dp)
@@ -73,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             playerTwoSelections.add(number)
             disabledImages.add(imageButton)
             activePlayer = ACTIVEPLAYER.FIRST
-            textView_CurrentPlayer.text = "CIRCLE"
+            textView_CurrentPlayer.text = "CIRCLE (O)"
             winnerCheck(playerTwoSelections, WINNER.PLAYER_TWO)
         }
 
@@ -96,7 +100,8 @@ class MainActivity : AppCompatActivity() {
                     winner = win                // diagonal top left to bottom right win
                 }
             }
-        } else if (selections.contains(5)) {
+        }
+        if (selections.contains(5)) {
             if (selections.contains(4)) {
                 if (selections.contains(6)) {
                     winner = win                // middle row win
@@ -110,7 +115,8 @@ class MainActivity : AppCompatActivity() {
                     winner = win                // diagonal top right to bottom left win
                 }
             }
-        } else if (selections.contains(3)) {
+        }
+        if (selections.contains(3)) {
             if (selections.contains(2)) {
                 if (selections.contains(1)) {
                     winner = win                // bottom row win
@@ -146,11 +152,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Reset game state to start
-    private fun resetGame() {
+    fun resetGame(view: View) {
+        winner = null
+        activePlayer = ACTIVEPLAYER.FIRST
+        textView_CurrentPlayer.text = "CIRCLE (O)"
+
         playerOneSelections.clear()
         playerTwoSelections.clear()
-        for (i in disabledImages.indices)
+        for (i in disabledImages.indices) {
             disabledImages[i]?.setImageResource(0)
+            disabledImages[i]?.isEnabled = true
+        }
         disabledImages.clear()
+
+        Toast.makeText(this, "Game Reset!", Toast.LENGTH_SHORT).show()
     }
 }
