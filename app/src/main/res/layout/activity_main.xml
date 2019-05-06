@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/textView_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Simple Tic Tac Toe App"
+                android:textSize="38sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="24dp">
+
+            <TextView
+                android:id="@+id/textView_CurrentPlayerTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:text="Current Player: "
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/textView_CurrentPlayer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:text="CIRCLE"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imageButton_7"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_8"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_9"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imageButton_4"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_5"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_6"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imageButton_1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_2"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_3"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="clickImageButton"
+                app:srcCompat="@mipmap/ic_launcher"/>
+        </TableRow>
+    </TableLayout>
+</android.support.constraint.ConstraintLayout>
